@@ -10,7 +10,8 @@ sudo wget -O $PUBLIC_KEY_FILE $PUBLIC_KEY_URL
 if [ -f $PUBLIC_KEY_FILE ]; then
     grep $REPOSITORY_STRING /etc/apk/repositories >/dev/null 2>&1
     if [ $? -ne 0 ]; then
-        echo $REPOSITORY_STRING >> /etc/apk/repositories
+        echo Adding repository entry [sudo]...
+        sudo echo $REPOSITORY_STRING >> /etc/apk/repositories
     fi
 
     sudo apk update
