@@ -1,0 +1,39 @@
+# Contributor: Raj Chaudhuri <rajch@hotmail.com>
+# Maintainer: Raj Chaudhuri <rajch@hotmail.com>
+pkgname=soedit
+pkgver=1.0
+pkgrel=0
+pkgdesc="A simple CUA-type text editor."
+url="http://github.com/rajch/soedit"
+arch="x86_64"
+license="BSD-3-Clause"
+depends=""
+makedepends="git make gcc"
+install=""
+subpackages="$pkgname-doc"
+source="https://github.com/rajch/soedit/releases/download/v$pkgver/soedit-$pkgver.tar.gz"
+builddir="$srcdir/soedit-$pkgver"
+
+build() {
+	cd "$builddir"
+	./configure \
+		--build=$CBUILD \
+		--host=$CHOST \
+		--prefix=/usr \
+		--sysconfdir=/etc \
+		--mandir=/usr/share/man \
+		--localstatedir=/var
+	make
+}
+
+check() {
+	cd "$builddir"
+	make check
+}
+
+package() {
+	cd "$builddir"
+	make DESTDIR="$pkgdir" install
+}
+
+sha512sums="ed6485d399c808cf1f1f0be443f11a484727f3322ab9599204d1b2805a223dda99a930a526183f63c8cf79533197c9690f90e1445e396caaeb3258f64b65a16b  soedit-1.0.tar.gz"
