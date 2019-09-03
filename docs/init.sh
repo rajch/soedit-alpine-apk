@@ -11,7 +11,7 @@ if [ -f $PUBLIC_KEY_FILE ]; then
     grep $REPOSITORY_STRING /etc/apk/repositories >/dev/null 2>&1
     if [ $? -ne 0 ]; then
         echo Adding repository entry [sudo]...
-        sudo echo $REPOSITORY_STRING >> /etc/apk/repositories
+        echo $REPOSITORY_STRING | sudo tee -a /etc/apk/repositories
     fi
 
     sudo apk update
