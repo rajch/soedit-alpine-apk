@@ -1,7 +1,7 @@
 # soedit-alpine-apk
 Alpine Linux APK packaging for the Sanos Text Editor
 
-The Sanos Text Editor is a simple text-mode application that uses the same key bindings as most GUI text editors. It was written my Michael Ringguard. More details can be found [here](http://www.jbox.dk/sanos/editor.htm).
+The Sanos Text Editor is a simple text-mode application that uses the same key bindings as most GUI text editors. It was written by Michael Ringguard. More details can be found [here](http://www.jbox.dk/sanos/editor.htm).
 
 It has been packaged using autools in an upstream project called [soedit](https://github.com/rajch/soedit).
 
